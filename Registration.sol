@@ -17,10 +17,10 @@ contract Registration {
         manager = msg.sender;
     }
 
-    modifier onlyAuthority() {
-        require(msg.sender == manager, "Only Authority can access");
-        _;
-    }
+    // modifier onlyAuthority() {
+    //     require(msg.sender == manager, "Only Authority can access");
+    //     _;
+    // }
     StudentData[] students;
 
     function addStudent(
@@ -29,7 +29,7 @@ contract Registration {
         string calldata uname,
         string calldata email,
         uint256 age
-    ) public onlyAuthority returns (string memory) {
+    ) public returns (string memory) {
         StudentData memory std = StudentData(id, name, uname, email, age);
         students.push(std);
         return "Student Data is Successfully added";
